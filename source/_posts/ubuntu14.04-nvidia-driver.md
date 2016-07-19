@@ -15,21 +15,21 @@ date: 2015-12-19 15:00:00
 
 环境
 ---
-###系统
+### 系统
 - **Ubuntu 14.04 LTS server 64bits**
 
-###硬件
+### 硬件
 - **Nvidia GeForce GTX TITAN X**
 
-###软件版本
+### 软件版本
 - **Driver Version:352.68**
 
 安装
 ---
-###Before
+### Before
 可能是之前的显卡驱动比较老，在更新某些安装包的导致显卡驱动无法支持而奔溃。我们这块主要是用来跑`Deeplearning`程序，结合`Caffe`, `Theano`和`Keras`使用。起因是运行`Theano`程序报错无法识别显卡,提示驱动是否安装并启动。`nvidia-smi`命令无法运行,因此基本上确定显卡驱动出问题了。马上还是着手重新安装。首先想到的是`google`和`stackoverflow`,确实也找到了靠谱的解决方案，想到的是显卡驱动应该有将近半年没有更换了，也正好升级一下，在引用的链接中找到了匹配的最新的驱动版本之后，也是根据链接里面的提示进行安装，非常顺利，这里对过程重新整理一遍。 
 
-###STEP1 卸载显卡驱动
+### STEP1 卸载显卡驱动
 - 删除nvidia原来的驱动
 ```
 sudo apt-get remove nvidia*
@@ -56,7 +56,7 @@ sudo apt-get --reinstall install libgl1-mesa-glx
 sudo reboot
 ```
 
-###STEP2 安装显卡驱动
+### STEP2 安装显卡驱动
 - 安装显卡驱动，注意版本的匹配。需要考虑GPU型号和ubuntu版本，如果没有添加ppa源请添加，方法见**STEP1**.
 ```
 sudo add-apt-repository -r ppa:xorg-edgers/ppa

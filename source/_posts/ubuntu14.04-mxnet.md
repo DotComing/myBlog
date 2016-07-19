@@ -15,23 +15,23 @@ date: 2015-12-24 11:00:00
 
 环境
 ---
-###系统
+### 系统
 - **Ubuntu 14.04 LTS server 64bits**
 
-###硬件
+### 硬件
 - **Nvidia GeForce GTX TITAN X**
 
-###软件版本
+### 软件版本
 - **Driver Version:352.68**
 - **CUDA7.0 & cuDNN**
 - **[mxnet](https://github.com/dmlc/mxnet)**
 
 安装
 ---
-###Before
+### Before
 `mxnet`核心是`C++`写的，所以需要在`Ubuntu`下先编译动态链接库，也就是`.so`文件。之后，如果想在`python`下面运行，那么需要编译`python egg`文件，这也是这里主要涉及的两个部分，`mxnet`支持`python`，`C++`，`matlab`和`R`等，我想这也是受欢迎的原因之一。
 
-###STEP1 Prerequisites
+### STEP1 Prerequisites
 - Nvidia驱动 CUDA7.0 cuDNN 自不必说。
 
 - libatlas等安装。
@@ -40,7 +40,7 @@ sudo apt-get update
 sudo apt-get install -y build-essential git libatlas-base-dev libopencv-dev
 ```
 
-###STEP2 编译.so文件
+### STEP2 编译.so文件
 - git clone mxnet
 ```
 git clone --recursive https://github.com/dmlc/mxnet
@@ -65,7 +65,7 @@ make -j16
 
 - 编译结束后，/mxnet/lib/出现libmxnet.so文件
 
-###STEP3 编译python版本, 默认在mxnet目录下
+### STEP3 编译python版本, 默认在mxnet目录下
 - 在step2成功之后，打包python egg。
 ```
 sudo apt-get install python-numpy
@@ -79,7 +79,7 @@ echo 'export PYTHONPATH=~/mxnet/python' >>  ~/.bashrc
 source ~/.bashrc
 ```
 
-###STEP4 测试demo mnist, 默认在mxnet目录下
+### STEP4 测试demo mnist, 默认在mxnet目录下
 - without gpu
 ```
 python example/image-classification/train_mnist.py
@@ -90,7 +90,7 @@ python example/image-classification/train_mnist.py
 python example/image-classification/train_mnist.py --gpus 0
 ```
 
-###注意点
+### 注意点
 **在具体运行的时候可能出现`OpenCV is not available.`的提醒，一般情况下不用理会，因为用不到，如果需要使用的话，安装参考[教程](https://github.com/bearpaw/Install-OpenCV)**
 
 参考链接
